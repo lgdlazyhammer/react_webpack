@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
@@ -8,7 +9,7 @@ const PATHS = {
 var config = {
     entry: './app/main.js',
     output: {
-        path: __dirname+'build',
+        path: 'build',
         filename: 'bundle.js',
     },
     module: {
@@ -29,7 +30,10 @@ var config = {
         test: /\.json$/,
         loader: 'json'
       }]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({minimize: true})
+    ]
 };
 
 module.exports = config;

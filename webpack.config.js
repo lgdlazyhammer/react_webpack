@@ -8,7 +8,7 @@ const PATHS = {
 var config = {
     entry: './app/main.js',
     output: {
-        path: __dirname+'build',
+        path: 'build',
         filename: 'bundle.js',
     },
     module: {
